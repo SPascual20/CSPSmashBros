@@ -1,9 +1,10 @@
 public class Player{
-  PImage player;
+  PImage playerFront, shootRight, shootLeft, runRight, runLeft, character;
   float playerX, playerY;
   String playerImage;
   
   public Player(int x){
+
     playerX = 0;
     playerY = 0;
     
@@ -14,17 +15,15 @@ public class Player{
       playerImage = "samus";
     }
     
-    player = loadImage("./images/" + playerImage + "player.png");
-    
   }
   
   public void design(){
-    if(){
-    }
-    else{
-    
-    }
-  
+      playerFront = loadImage("./images/" + playerImage + "player.png");
+      shootRight = loadImage("./images/" + playerImage + "shootingright.png");
+      shootLeft = loadImage("./images/" + playerImage + "shootingleft.png");
+      runRight = loadImage("./images/" + playerImage + "runningright.png");
+      runLeft = loadImage("./images/" + playerImage + "runningleft.png");
+      character = playerFront;
   }
 
 }
