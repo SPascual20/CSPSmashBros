@@ -1,14 +1,15 @@
 public class Player{
   PImage playerFront, shootRight, shootLeft, runRight, runLeft, character;
-  float sPlayerX, sPlayerY, fPlayerX, fPlayerY;
+  float FPlayerX, FPlayerY, SPlayerX, SPlayerY;
   String playerImage;
   
   public Player(int x){
 
-    sPlayerX = 0;
-    sPlayerY = 0;
-    fPlayerX = 0;
-    fPlayerY = 0;
+    FPlayerX = 150;
+    FPlayerY = 300;
+    
+    SPlayerX = 600;
+    SPlayerY = 300;
     
     if(x == 1){
       playerImage = "fox";
@@ -18,6 +19,22 @@ public class Player{
     }
     
   }
+  
+  public void draw(){
+    design();
+    if(playerImage == "fox"){  
+      image(character, FPlayerX , FPlayerY, 150, 150);
+    }
+    if(playerImage == "samus"){      
+      image(character, SPlayerX , SPlayerY, 150, 150);
+    }
+    
+    //design();
+    keyPressed();
+  }
+  
+  
+  
   
   public void design(){
       playerFront = loadImage("./images/" + playerImage + "player.png");
@@ -30,13 +47,13 @@ public class Player{
   
   public void keyPressed(){
     if(key == 'w'){
-      //moves fox to jump
+      character = playerFront;
     }
     if(key == 'a'){
-      //moves fox left
+      character = runLeft;
     }
     if(key == 'd'){
-      //moves fox right
+      character = runRight;
     }
     if(key == 'f'){
       //fox shoots
@@ -49,13 +66,14 @@ public class Player{
     
     if(key == CODED){
       if(keyCode == UP){
-         //move samus to jump
+        character = playerFront;
       }
       if(keyCode == LEFT){
-        //moves samus left
+        character = runLeft;
       }
       if(keyCode == RIGHT){
-        //moves samus right
+        character = runRight;
+
       }
     }
     if(key == ','){
