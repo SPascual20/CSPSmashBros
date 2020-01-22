@@ -8,7 +8,7 @@ int p1DmgPct = 0, p2DmgPct = 0 ;
 
 
 public class restart () {
-  playerX, playerY
+  
   p1Lives = 3 ;
   p2Lives = 3 ;
   p1DmgPct = 0 ;
@@ -58,7 +58,7 @@ if (p2 hits p1) {
   p1DmgPct += 10 ;
 }
 
-if (p1DmgPct <= 200) {
+if (p1DmgPct >= 200) {
   p1Lives -=1 && restart() ; 
 }
 
@@ -72,10 +72,11 @@ if (p1 hits p2) {
   p2DmgPct += 10 ;
 }
 
-if (p2DmgPct <= 200) {
+if (p2DmgPct >= 200) {
   p2Lives -=1 && restart() ; 
 }
 
 if (p2Lives == 0) {
   p1Wins +=1 ;
 }
+basic Scoring 

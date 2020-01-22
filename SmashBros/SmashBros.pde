@@ -34,7 +34,9 @@ void timer(){
     text("Time: " + m + ":" + s,0,50);
   }
   ms++;
-  if (ms == 18){
+
+  if (ms == 17){
+
     s++;
     ms=0;
     if (s == 59){
@@ -42,5 +44,5 @@ void timer(){
       s = 0;
     }
   }
-   
+
 }
