@@ -1,4 +1,4 @@
-  
++  
 PImage bg;
 PImage stg;
 int s,m,ms;
