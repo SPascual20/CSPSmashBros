@@ -29,7 +29,7 @@ void timer(){
     text("Time: " + m + ":" + s,0,50);
   }
   ms++;
-  if (ms == 17){
+  if (ms == 19){
     s++;
     ms=0;
     if (s == 59){
