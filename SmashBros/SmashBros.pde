@@ -35,8 +35,7 @@ void timer(){
   }
   ms++;
 
-  if (ms == 17){
-
+  if (ms == 19){
     s++;
     ms=0;
     if (s == 59){

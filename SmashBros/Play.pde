@@ -18,14 +18,15 @@ public class Player{
     
   }
   
-  public void design(){
+  /*public void design(){
     if(){
+      
     }
     else{
     
     }
   
-  }
+  }*/
 
 
 }
