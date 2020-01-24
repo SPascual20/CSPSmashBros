@@ -14,6 +14,7 @@ public class SamusPlayer{
     
   }
   
+
   public void draw(){
     //keyPressed();
     image(SCharacter, SPlayerX , SPlayerY, 150, 150);
