@@ -1,77 +1,45 @@
-+  
+PImage bg,stg,stock1,stock2;
 PImage bg;
 PImage stg;
-
 SamusPlayer p1;
 FoxPlayer p2;
 boolean moveLeft, moveRight, fMoveLeft, fMoveRight, bull;
 ArrayList bullets = new ArrayList();
 Bullet[] bulletArray;
+int s,m,ms;
 
-<<<<<<< HEAD
-  void setup(){
-    frameRate(400);
-    size(900,600);
-    bg= loadImage("./Images/back2.jpg");
-    stg= loadImage("./Images/stage.png");
-    p1 = new SamusPlayer();
-    p2 = new FoxPlayer();
-    moveLeft = false;
-    moveRight = false;
-    fMoveLeft = false;
-    fMoveRight = false;
-    bullets = new ArrayList<Bullet>();
-    bulletArray=new Bullet[1];
-    for(int i=0;i<bulletArray.length; i++){
-      bulletArray[i]=new Bullet(width/2,height-20, -8);
-    }
-    
-    
+void setup(){
+  frameRate(400);
+  size(900,600);
+  bg= loadImage("./Images/back2.jpg");
+  stg= loadImage("./Images/stage.png");
+  p1 = new SamusPlayer();
+  p2 = new FoxPlayer();
+  stock1= loadImage("./Images/foxStock.jpg");
+  stock2= loadImage("./Images/samusStock.jpg");
+  moveLeft = false;
+  moveRight = false;
+  fMoveLeft = false;
+  fMoveRight = false;
+  bullets = new ArrayList<Bullet>();
+  bulletArray=new Bullet[1];
+  for(int i=0;i<bulletArray.length; i++){
+    bulletArray[i]=new Bullet(width/2,height-20, -8);
   }
+    
+    
+}
+
 
   void draw(){
     image(bg,0,0,width, height);
     image(stg,95,400,700,200);
     p1.draw();
     p2.draw();
+    timer();
+    Scoring();
   }
-=======
-int s,m,ms;
 
-
-
-void setup(){
-  frameRate(400);
-  size(900,600);
-  textSize(60);
-  text("Player 1- use WASD to move. Player 2- use arrow keys. Press 'F' key to fight. ",10,40);
-  rect(width-200, 40, 150,40);
-  fill(0,0,255);
-  bg= loadImage("./Images/back2.jpg");
-  stg= loadImage("./Images/stage.png");
-
-  p1 = new SamusPlayer();
-  p2 = new FoxPlayer();
-  moveLeft = false;
-  fMoveLeft = false;
-
-  s = 0;
-  m = 0;
-  ms = 0;
-
-  
-}
-
-void draw(){
-  image(bg,0,0,width, height);
-  image(stg,95,400,700,200);
-
-  p1.draw();
-  p2.draw();
-
-  timer();
-
-}
 
 void timer(){
   textSize(32);
@@ -94,7 +62,7 @@ void timer(){
 
 
 }
->>>>>>> ec81a624544f30643324dc6c41f010a5c18252d2
+
 
   void keyPressed(){
       if(key == 'f'){
