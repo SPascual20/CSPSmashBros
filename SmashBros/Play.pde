@@ -15,24 +15,23 @@ public class SamusPlayer{
   }
   
   public void draw(){
-    //keyPressed();
-    image(SCharacter, SPlayerX , SPlayerY, 150, 150);
-    design();
-    //println(moveLeft);
-    if(moveLeft){
-        SPlayerX -= 5;
-        
     
+    image(SCharacter, SPlayerX , SPlayerY, 150, 150);
+    
+    design();
+    
+    if(moveLeft){
+        SPlayerX -= 50;
+        SCharacter = runLeft;
     }
+    if(moveRight){
+        SPlayerX += 50;
+        SCharacter = runRight;
+    }
+   
     
     
      
-  }
- 
-    
-  public void update(){
-    SPlayerX -= 5;
-
   }
   
   
@@ -45,49 +44,6 @@ public class SamusPlayer{
       SCharacter = playerFront;   
   }
   
-void keyPressed(){
-      if(key == 'w'){
-        SCharacter = playerFront;
-      }
-      if(key == 'a'){ //face left and move left 5
-        moveLeft = true;
-        SCharacter = runLeft;
-        keyReleased();
-      }
-      if(key == 'd'){
-        SCharacter = runRight;
-        SPlayerX += 5;
-      }
-      if(facingRight() && key == 'f'){
-        SCharacter = shootRight;
-      }  
-      if(facingLeft() && key == 'f'){
-        SCharacter = shootLeft;
-      }  
-  }   
+    
+  }
   
-  void keyReleased() {
-    if(key == 'a') {
-      //case 97: //a
-          moveLeft = false;
-          println("a released");
-          //break;    
-    } 
-}    
-      
-      
-   
-  public boolean facingRight(){
-    if(SCharacter == runRight){
-        return true;
-      }
-    return false;
-  }
-  public boolean facingLeft(){
-    if(SCharacter == runLeft){
-        return true;
-      }
-    return false;
-  }
-      
- }

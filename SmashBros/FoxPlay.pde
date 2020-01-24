@@ -18,11 +18,14 @@ public class FoxPlayer{
     image(FCharacter, FPlayerX , FPlayerY, 150, 150);
 
     design();
-   // println(fMoveLeft);
-    if(fMoveLeft){
-        FPlayerX -= 5;
-        
     
+    if(fMoveLeft){
+        FCharacter = runLeft;
+        FPlayerX -= 50;
+    }
+    if(fMoveRight){        
+      FCharacter = runRight;
+      FPlayerX += 50;
     }
   }
   
@@ -36,33 +39,6 @@ public class FoxPlayer{
       runRight = loadImage("./images/foxrunningleft.png");
       runLeft = loadImage("./images/foxrunningright.png");
       FCharacter = playerFront;
-    
-      
-  }
-  
-  public void keyPressed(){
-    
-      if(key == CODED){
-        if(keyCode == UP){
-          FCharacter = playerFront;
-        }
-        if(keyCode == LEFT){
-          FCharacter = runLeft;
-          FPlayerX -= 5;
-        }
-        if(keyCode == RIGHT){
-          FCharacter = runRight;
-          FPlayerX += 5;
-  
-        }
-        if(FCharacter == runRight && key == ','){
-          FCharacter = shootRight;
-        }
-        if(FCharacter == runLeft && key == ','){
-          FCharacter = shootLeft;
-        }
-      }
-    
     
       
   }
