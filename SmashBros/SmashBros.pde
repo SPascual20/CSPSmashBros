@@ -1,6 +1,4 @@
-+  
-PImage bg;
-PImage stg;
+PImage bg,stg,stock1,stock2;
 int s,m,ms;
 
 
@@ -12,6 +10,8 @@ void setup(){
   fill(0,0,255);
   bg= loadImage("./Images/back2.jpg");
   stg= loadImage("./Images/stage.png");
+  stock1= loadImage("./Images/foxStock.jpg");
+  stock2= loadImage("./Images/samusStock.jpg");
   s = 0;
   m = 0;
   ms = 0;
@@ -22,6 +22,7 @@ void draw(){
   image(bg,0,0,width, height);
   image(stg,95,400,700,200);
   timer();
+  Scoring();
 
 }
 

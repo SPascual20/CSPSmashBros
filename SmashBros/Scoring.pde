@@ -1,82 +1,67 @@
-
-
-  
 int p1Lives = 3, p2Lives = 3 ;
 int p1Wins = 0, p2Wins = 0 ;
-int p1DmgPct = 0, p2DmgPct = 0 ;
-
-
-
-
-
-
+int p1Dmg = 0, p2Dmg = 0 ;
 int time;
-/*void setup(){
-  time = millis();
-}*/
 void p2restart () {
-  p2DmgPct = 0 ;
+  p2Dmg = 0 ;
   
 }
 void p1restart () {
-  p1DmgPct = 0 ;
-
+  p1Dmg = 0 ;
   
 }
 
 void gameOver1() {
-  background(0);
   if( millis() < time + 3000){
-    text("GAME OVER! PLAYER 1 WINS", 20, 20);
+    background(0);
+    text("GAME OVER! PLAYER 1 WINS", 250, 300);
   }
 }
 
 
 void gameOver2() {
-
-  background(0);
   if( millis() < time + 3000){
+    background(0);
     text("GAME OVER! PLAYER 2 WINS", 20, 20);
   }
 }
   
 void Scoring(){
+  textSize(75);
+  text("P1:" + p1Dmg + "%",175,530);
+  text("P2:" + p2Dmg + "%",525,530);
+  textSize(40);
+  text("Stocks:" + p1Lives ,175,570);
+  text("Stocks:" + p2Lives ,525,570);
+  
 
   /*if (p2 hits p1) {  
-    p1DmgPct += 10 ;
+    p1Dmg += 10 ;
   }
   
-  if (p1DmgPct >= 200) {
+  if (p1Dmg >= 200) {
     p1Lives -=1;
     p1restart();
   }
   
   if (p1Lives == 0) {
-    p2Wins +=1 ;
+    gameOver2();
   }
   
   
   
   if (p1 hits p2) {  
-    p2DmgPct += 10 ;
+    p2Dmg += 10 ;
   }
   
-  if (p2DmgPct >= 200) {
+  if (p2Dmg >= 200) {
     p2Lives -=1;
     p2restart();
   }
   
   if (p2Lives == 0) {
-    p1Wins +=1 ;
+    gameOver1();
   }*/
-  checkForWinner();
-}
-
-void checkForWinner() {
-  if (p1Wins == 3 ){
-    gameOver1() ;
-  }
-  else if (p2Wins == 3 ){
-    gameOver2(); 
-  }
+  
+  
 }
