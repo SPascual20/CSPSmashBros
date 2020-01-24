@@ -1,57 +1,45 @@
-<<<<<<< HEAD
 PImage bg,stg,stock1,stock2;
-=======
-+  
 PImage bg;
 PImage stg;
-
 SamusPlayer p1;
 FoxPlayer p2;
-boolean moveLeft, fMoveLeft;
-
->>>>>>> 6d045ae0d98fe597bfadb3f942c748b895e6976c
+boolean moveLeft, moveRight, fMoveLeft, fMoveRight, bull;
+ArrayList bullets = new ArrayList();
+Bullet[] bulletArray;
 int s,m,ms;
-
-
 
 void setup(){
   frameRate(400);
   size(900,600);
-  textSize(60);
-  text("Player 1- use WASD to move. Player 2- use arrow keys. Press 'F' key to fight. ",10,40);
-  rect(width-200, 40, 150,40);
-  fill(0,0,255);
   bg= loadImage("./Images/back2.jpg");
   stg= loadImage("./Images/stage.png");
-<<<<<<< HEAD
-  stock1= loadImage("./Images/foxStock.jpg");
-  stock2= loadImage("./Images/samusStock.jpg");
-=======
-
   p1 = new SamusPlayer();
   p2 = new FoxPlayer();
+  stock1= loadImage("./Images/foxStock.jpg");
+  stock2= loadImage("./Images/samusStock.jpg");
   moveLeft = false;
+  moveRight = false;
   fMoveLeft = false;
-
->>>>>>> 6d045ae0d98fe597bfadb3f942c748b895e6976c
-  s = 0;
-  m = 0;
-  ms = 0;
-
-  
+  fMoveRight = false;
+  bullets = new ArrayList<Bullet>();
+  bulletArray=new Bullet[1];
+  for(int i=0;i<bulletArray.length; i++){
+    bulletArray[i]=new Bullet(width/2,height-20, -8);
+  }
+    
+    
 }
 
-void draw(){
-  image(bg,0,0,width, height);
-  image(stg,95,400,700,200);
 
-  p1.draw();
-  p2.draw();
+  void draw(){
+    image(bg,0,0,width, height);
+    image(stg,95,400,700,200);
+    p1.draw();
+    p2.draw();
+    timer();
+    Scoring();
+  }
 
-  timer();
-  Scoring();
-
-}
 
 void timer(){
   textSize(32);
@@ -75,50 +63,50 @@ void timer(){
 
 }
 
-void keyPressed(){
-      if(key == 'w'){
-        //SCharacter = playerFront;
-       // println("w pressed");
+
+  void keyPressed(){
+      if(key == 'f'){
       }
-      if(key == 'a'){ //face left and move left 5
+       
+      if(key == 'a'){
         moveLeft = true;
-        //p1.update();
-        //println("a pressed");
-        //SCharacter = runLeft;
         
       }
+      if(key == 'd'){ 
+        moveRight = true;
+      }
+      if(key == 'f'){
+        bull = true;
+      }
+      
       if(key == CODED){
-        if(keyCode == UP){
-        }
         if(keyCode == LEFT){
           fMoveLeft = true;
           println("fox left true");
         }
         if(keyCode == RIGHT){
-  
+          fMoveRight = true;
         }
       }
   }   
   
   void keyReleased() {
     if(key == 'a') {
-      //case 97: //a
-          moveLeft = false;
-          //println("a released");
-          //break;    
+      moveLeft = false;  
     } 
-    
-    
+    if(key == 'd'){
+      moveRight = false;
+    }
     
     if(key == CODED){
-        if(keyCode == UP){
-        }
+        
         if(keyCode == LEFT){
           fMoveLeft = false;
           println("fox left false");
         }
         if(keyCode == RIGHT){
+          fMoveRight = false;
   
         }
-      }
+    }
 }    
