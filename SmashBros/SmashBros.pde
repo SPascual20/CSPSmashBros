@@ -1,8 +1,21 @@
+<<<<<<< HEAD
 PImage bg,stg,stock1,stock2;
+=======
++  
+PImage bg;
+PImage stg;
+
+SamusPlayer p1;
+FoxPlayer p2;
+boolean moveLeft, fMoveLeft;
+
+>>>>>>> 6d045ae0d98fe597bfadb3f942c748b895e6976c
 int s,m,ms;
 
 
+
 void setup(){
+  frameRate(400);
   size(900,600);
   textSize(60);
   text("Player 1- use WASD to move. Player 2- use arrow keys. Press 'F' key to fight. ",10,40);
@@ -10,17 +23,31 @@ void setup(){
   fill(0,0,255);
   bg= loadImage("./Images/back2.jpg");
   stg= loadImage("./Images/stage.png");
+<<<<<<< HEAD
   stock1= loadImage("./Images/foxStock.jpg");
   stock2= loadImage("./Images/samusStock.jpg");
+=======
+
+  p1 = new SamusPlayer();
+  p2 = new FoxPlayer();
+  moveLeft = false;
+  fMoveLeft = false;
+
+>>>>>>> 6d045ae0d98fe597bfadb3f942c748b895e6976c
   s = 0;
   m = 0;
   ms = 0;
+
   
 }
 
 void draw(){
   image(bg,0,0,width, height);
   image(stg,95,400,700,200);
+
+  p1.draw();
+  p2.draw();
+
   timer();
   Scoring();
 
@@ -45,4 +72,53 @@ void timer(){
     }
   }
 
+
 }
+
+void keyPressed(){
+      if(key == 'w'){
+        //SCharacter = playerFront;
+       // println("w pressed");
+      }
+      if(key == 'a'){ //face left and move left 5
+        moveLeft = true;
+        //p1.update();
+        //println("a pressed");
+        //SCharacter = runLeft;
+        
+      }
+      if(key == CODED){
+        if(keyCode == UP){
+        }
+        if(keyCode == LEFT){
+          fMoveLeft = true;
+          println("fox left true");
+        }
+        if(keyCode == RIGHT){
+  
+        }
+      }
+  }   
+  
+  void keyReleased() {
+    if(key == 'a') {
+      //case 97: //a
+          moveLeft = false;
+          //println("a released");
+          //break;    
+    } 
+    
+    
+    
+    if(key == CODED){
+        if(keyCode == UP){
+        }
+        if(keyCode == LEFT){
+          fMoveLeft = false;
+          println("fox left false");
+        }
+        if(keyCode == RIGHT){
+  
+        }
+      }
+}    
